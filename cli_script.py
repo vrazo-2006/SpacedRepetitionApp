@@ -1,3 +1,6 @@
+# still need to check why it doesn't work from my other terminal and format the json that is being
+#printed out to look better when using --show flag.
+
 import argparse
 import json
 from pathlib import Path
