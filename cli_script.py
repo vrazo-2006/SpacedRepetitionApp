@@ -4,7 +4,7 @@
 import argparse
 import json
 from pathlib import Path
-from datetime import datetime  # to get the time each intervel was created
+from datetime import datetime, timedelta # to get the time each intervel was created
 
 intervals = [1, 3, 7, 14, 31, 93, 186, 365]
 DATA_FILE = Path("/Users/vrazo/Desktop/code/workplace/Spaced_Repetition_App/SpacedRepetitionApp/my_user_memory.json")
@@ -46,6 +46,7 @@ def new(object, flashcard_front, flashcard_back):
     # Creates nest
     data[object][flashcard_front] = {
         "created_at": time,
+        "repetitions": [(datetime.now()+timedelta(days=i)).strftime("%A, %B %d, %Y") for i in intervals ],
         "front": flashcard_front,
         "back": flashcard_back,
         }
